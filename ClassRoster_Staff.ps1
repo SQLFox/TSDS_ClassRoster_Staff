@@ -86,6 +86,6 @@ foreach ($uid in $teachers) {
         $staff.AppendChild($x.CreateElement('TX-StaffTypeCode')).AppendChild($x.CreateTextNode($data.StaffTypeCode)) | Out-Null
     }
 }
-$filepath = [Environment]::GetFolderPath('Desktop') + '\' + $data.DistrictId + '_000_2020TSDS_' + (Get-Date -Format 'yyyyMMddHHmm') + '_InterchangeStaffAssociationExtension.xml'
+$filepath = [Environment]::GetFolderPath('Desktop') + '\' + $data.DistrictId + '_000_2020TSDS_' + ((Get-Date).AddYears(-100) | Get-Date -Format 'yyyyMMddHHmm') + '_InterchangeStaffAssociationExtension.xml'
 $x.Save($filepath)
 Write-Host ('  ' + $filepath + ' created. ')
